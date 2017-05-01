@@ -1,0 +1,60 @@
+@(message: String, style: String = "java")
+@import helper._
+
+@defining(play.core.PlayVersion.current) { version =>
+
+    <link rel="stylesheet" media="screen" href="/@@documentation/resources/style/main.css">
+	
+	
+<html>
+    <head>
+	
+        <title>Post</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+<h1>Enter information to be placed in Database</h1> 
+        <a href ="search">Search</a>|
+        <a href="login.jsp">Login</a>|  
+        <a href="logout">Logout</a>|  
+        <a href="profile">Profile</a>|
+        <a href="about">About</a>
+		<p></p>
+		
+		@helper.form(action=routes.PostController.getUserById()){
+			Type the ID of User to be found:<input type ="text" name="id"><br>
+			<input type ="submit" value = "Find">			
+		}
+		
+		<p></p>
+		
+		@helper.form(action=routes.PostController.addUser()){
+			ID:<input type ="text" name="id"><br>
+            UserName:<input type="text" name="username"><br>  
+            Password:<input type="text" name="pass"><br>  
+			Song:<input type = "text" name="song"><br> 
+            <input type="submit" value="Add">  
+			}
+			
+        <p></p>
+
+		@helper.form(action=routes.PostController.deleteUser()){
+			Type the ID of User to be deleted:<input type ="text" name="id"><br>
+			<input type ="submit" value = "Delete">			
+		}
+		
+		<p></p>
+		
+		@helper.form(action=routes.PostController.updateUser()){
+			Type the ID of User to be updated:<input type ="text" name="id"><br>
+			Updated UserName:<input type ="text" name="username"><br>
+			Update Password:<input type ="text" name="pass"><br>
+			Updated Song:<input type ="text" name="song"><br>
+			<input type ="submit" value = "Update">	
+			
+		}
+    </body>
+</html>
+}
+

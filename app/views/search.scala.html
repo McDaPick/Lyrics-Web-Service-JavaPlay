@@ -1,0 +1,36 @@
+@(message: String, style: String = "java")
+@import helper._
+
+@defining(play.core.PlayVersion.current) { version =>
+
+    <link rel="stylesheet" media="screen" href="/@@documentation/resources/style/main.css">
+	
+		
+<html>
+    <head>
+
+        <title>Lyric Lookup </title>  
+    </head>  
+    <body>  
+
+        <h1>Welcome to the LyricLookup!</h1> 
+        <a href ="search">Search</a>|
+        <a href="login">Login</a>|  
+        <a href="logout">Logout</a>|  
+        <a href="profile">Profile</a>|
+        <a href="about">About</a>
+		
+        
+        <br></br>
+@helper.form(action=routes.SearchController.searchLyrics()){
+Search Song Name <input type="text" name="song"><br>
+Artist Name <input type="text" name="artist"><br>
+
+<input type="submit" value="Search">
+}
+        </form>  
+    </body>
+</html>
+
+}
+	
